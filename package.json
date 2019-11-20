@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "knex": "^0.20.2",
+    "node-fetch": "^2.6.0",
     "pg": "^7.14.0"
   }
 }
