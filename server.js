@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+app.use(express.json());
+
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
 const database = require('knex')(configuration);
@@ -8,6 +10,8 @@ const database = require('knex')(configuration);
 app.set('port', process.env.PORT || 3000);
 app.locals.title = 'DND Class Info';
 
+
+//Start classes endpoints
 app.get('/api/v1/classes', (request, response) => {
   database('classes').select()
     .then(classes => {
@@ -29,6 +33,25 @@ app.get('/api/v1/classes/:id', (request, response) => {
     });
 });
 
+app.post('/api/v1/classes', (request, response) => {
+  const newClass = request.body;
+
+  for (let requiredParameter of ['name', 'hit_die']) {
+    if (!newClass[requiredParameter]) {
+      return response.status(422).send({
+        error: `Required format is: { name: <string>, hit_die: <string> } ${requiredParameter} missing from request`
+      });
+    }
+  }
+  database('classes').insert(newClass, 'id')
+    .then(newClassId => {
+      const { name, hit_die } = newClass;
+      response.status(201).json({id: newClassId[0], name, hit_die} )
+    })
+})
+//End classes endpoints
+
+//Start subclasses endpoints
 app.get('/api/v1/subclasses', (request, response) => {
   database('subclasses').select()
     .then((subclasses) => {
@@ -51,6 +74,7 @@ app.get('/api/v1/subclasses/:id', (request, response) => {
       };
     });
 });
+//End subclasses endpoints
 
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on localhost:${app.get('port')}`);
