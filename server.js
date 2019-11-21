@@ -10,7 +10,12 @@ app.locals.title = 'DND Class Info';
 
 app.get('api/v1/classes', (request, response) => {
   database('classes').select()
-    .then((()))
+    .then((classes) => {
+      response.status(200).json(classes)
+    })
+    .catch(error => {
+      response.status(500).json({ error: 'Unable to retrieve classes' });
+    })
 })
 
 app.listen(app.get('port'), () => {
