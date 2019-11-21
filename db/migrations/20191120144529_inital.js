@@ -6,38 +6,46 @@ exports.up = function(knex) {
       table.string('hit_die');
     }),
 
-    knex.schema.createTable('classes_saving_throws', table => {
-      table.increments('id').primary();
-      table.integer('class_id').references('classes.id');
-      table.integer('ST_id').references('saving_throws.id');
-    }),
-
-    knex.schema.createTable('saving_throws', table => {
+    
+    knex.schema.createTable('subclasses', table => {
       table.increments('id').primary();
       table.string('name');
-      table.string('abbreviation');
-    }),
+      table.string('subclass_flavor');
+      table.string('description', 1000);
+      table.integer('class_id').unsigned();
+      table.foreign('class_id').references('classes.id');
+      table.timestamps(true, true);
+    })
+    
+    // knex.schema.createTable('classes_saving_throws', table => {
+    //   table.increments('id').primary();
+    //   table.integer('class_id').references('classes.id');
+    //   table.integer('ST_id').references('saving_throws.id');
+    // }),
 
-    knex.schema.createTable('classes_proficiencies', table => {
-      table.increments('id').primary();
-      table.integer('class_id').references('classes.id');
-      table.integer('proficiency_id').references('proficiencies.id');
-    }),
+    // knex.schema.createTable('saving_throws', table => {
+    //   table.increments('id').primary();
+    //   table.string('name');
+    //   table.string('abbreviation');
+    // }),
 
-    knex.schema.createTable('proficiencies', table => {
-      table.increments('id').primary();
-      table.string('name');
-      table.string('example');
-    }),
+    // knex.schema.createTable('classes_proficiencies', table => {
+    //   table.increments('id').primary();
+    //   table.integer('class_id').references('classes.id');
+    //   table.integer('proficiency_id').references('proficiencies.id');
+    // }),
+
+    // knex.schema.createTable('proficiencies', table => {
+    //   table.increments('id').primary();
+    //   table.string('name');
+    //   table.string('example');
+    // }),
   ])  
 };
 
 exports.down = knex => {
   return Promise.all([
-    knex.schema.dropTable('classes_saving_throws'),
-    knex.schema.dropTable('classes_proficiencies'),
-    knex.schema.dropTable('proficiencies'),
-    knex.schema.dropTable('saving_throws'),
-    knex.schema.dropTable('classes')
+    knex.schema.dropTable('subclasses'),
+    knex.schema.dropTable('classes'),
   ])
 };

@@ -1,33 +1,32 @@
 const classes = require('../../../classes');
-
-const tablesReset = (knex) => {
-  const tableNames = ['classes', 'classes_saving_throws', 'saving_throws', 'classes_proficiencies', 'proficiencies']
-  return tableNames.forEach(async (table) => {
-    await knex(table).del();
-  })
-};
+const subclasses = require('../../../subclasses');
 
 const createClass = (knex, classData) => {
-  const { name, hit_die, proficiencies, saving_throws } = classData;
+  const { name, hit_die, sub_class } = classData;
   return knex('classes').insert({
     name,
     hit_die
   }, 'id')
     .then(classID => {
-      console.log(classID)
+      let subclassPromises = [];
+      const foundSubclass = subclasses.find(elem => elem.name === sub_class)
+      subclassPromises.push(createSubclass(knex, {
+        name: foundSubclass.name,
+        subclass_flavor: foundSubclass.subclass_flavor,
+        description: foundSubclass.desc,
+        class_id: classID[0]
+      }))
+      return Promise.all(subclassPromises)
     })
 }
 
-const buildClassSavingThrowJoin = async (knex, savingThrows) => {
-  
-}
+const createSubclass = (knex, subclass) => {
+  return knex('subclasses').insert(subclass);
+};
 
 exports.seed = (knex) => {
-  return knex('classes').del()
-    .then(() => knex('classes_saving_throws').del())
-    .then(() => knex('saving_throws').del())
-    .then(() => knex('classes_proficiencies').del())
-    .then(() => knex('proficiencies').del())
+  return knex('subclasses').del()
+    .then(() => knex('classes').del())
     .then(() => {
       let classPromises = [];
       classes.forEach(classData => {
