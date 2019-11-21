@@ -35,7 +35,6 @@ app.get('/api/v1/classes/:id', (request, response) => {
 
 app.post('/api/v1/classes', (request, response) => {
   const newClass = request.body;
-
   for (let requiredParameter of ['name', 'hit_die']) {
     if (!newClass[requiredParameter]) {
       return response.status(422).send({
@@ -72,6 +71,20 @@ app.get('/api/v1/subclasses/:id', (request, response) => {
       } else {
         response.status(404).json({ error: `No subclass with ID: ${request.params.id} exists` });
       };
+    });
+});
+
+app.post('/api/v1/subclasses', (request, response) => {
+  const subclass = request.body;
+  for (let requiredParameter of ['name', 'subclass_flavor', 'description']) {
+    if (!subclass[requiredParameter]) {
+      response.status(422).send({ error: `Required format is: { name: <string>, subclass_flavor: <string>, description: <string> } ${requiredParameter} missing from request` })
+    }
+  }
+  database('subclasses').insert(subclass, 'id')
+    .then(newId => {
+      const { name, subclass_flavor, description } = subclass
+      response.status(201).json({ id: newId[0], name, subclass_flavor, description });
     });
 });
 //End subclasses endpoints
