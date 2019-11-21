@@ -18,6 +18,18 @@ app.get('api/v1/classes', (request, response) => {
     })
 })
 
+app.get('api/v1/subclasses', (request, response) => {
+  database('subclasses').select()
+    .then((subclasses) => {
+      response.status(200).json(subclasses)
+    })
+    .catch(error => {
+      response.status(500).json({
+        error: 'Unable to retrieve subclasses'
+      });
+    })
+})
+
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on localhost:${app.get('port')}`)
 })
