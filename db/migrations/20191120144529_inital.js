@@ -11,7 +11,7 @@ exports.up = function(knex) {
       table.increments('id').primary();
       table.string('name');
       table.string('subclass_flavor');
-      table.string('description', 1000);
+      table.string('description', 3000);
       table.integer('class_id').unsigned();
       table.foreign('class_id').references('classes.id');
       table.timestamps(true, true);

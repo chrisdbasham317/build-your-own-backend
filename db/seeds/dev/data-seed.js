@@ -10,12 +10,13 @@ const createClass = (knex, classData) => {
     .then(classID => {
       let subclassPromises = [];
       const foundSubclass = subclasses.find(elem => elem.name === sub_class)
-      subclassPromises.push(createSubclass(knex, {
+      console.log(foundSubclass)
+      foundSubclass ? subclassPromises.push(createSubclass(knex, {
         name: foundSubclass.name,
         subclass_flavor: foundSubclass.subclass_flavor,
         description: foundSubclass.desc,
         class_id: classID[0]
-      }))
+      })) : null;
       return Promise.all(subclassPromises)
     })
 }

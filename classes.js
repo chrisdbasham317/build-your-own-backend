@@ -81,7 +81,7 @@ const classes = [
     hit_die: 8,
     proficiencies: ["Light armor", "Simple weapons", "Longswords", "Rapiers", "Shortswords", "Crossbows, hand", "Thieves' Tools"],
     saving_throws: ["DEX", "INT"],
-    sub_class: 'Theif',
+    sub_class: 'Thief',
   },
   {
     name: "Sorcerer",
