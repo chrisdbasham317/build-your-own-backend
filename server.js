@@ -48,6 +48,18 @@ app.post('/api/v1/classes', (request, response) => {
       response.status(201).json({id: newClassId[0], name, hit_die} )
     })
 })
+
+app.delete('/api/v1/classes/:id', (request, response) => {
+  const id = request.params.id;
+  database('classes').where('id', id).del()
+    .then(() => database('classes').select())
+    .then(classes => {
+      response.status(202).json(classes);
+    })
+    .catch(error => {
+      response.status(404).send({ error: `Class with ID: ${id} not found` });
+    });
+})
 //End classes endpoints
 
 //Start subclasses endpoints
@@ -76,11 +88,13 @@ app.get('/api/v1/subclasses/:id', (request, response) => {
 
 app.post('/api/v1/subclasses', (request, response) => {
   const subclass = request.body;
-  for (let requiredParameter of ['name', 'subclass_flavor', 'description']) {
+  console.log(database)
+  for (let requiredParameter of ['name', 'subclass_flavor', 'description', 'parent_class']) {
     if (!subclass[requiredParameter]) {
       response.status(422).send({ error: `Required format is: { name: <string>, subclass_flavor: <string>, description: <string> } ${requiredParameter} missing from request` })
     }
   }
+  
   database('subclasses').insert(subclass, 'id')
     .then(newId => {
       const { name, subclass_flavor, description } = subclass
