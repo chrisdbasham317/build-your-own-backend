@@ -88,18 +88,22 @@ app.get('/api/v1/subclasses/:id', (request, response) => {
 
 app.post('/api/v1/subclasses', (request, response) => {
   const subclass = request.body;
-  console.log(database)
   for (let requiredParameter of ['name', 'subclass_flavor', 'description', 'parent_class']) {
     if (!subclass[requiredParameter]) {
       response.status(422).send({ error: `Required format is: { name: <string>, subclass_flavor: <string>, description: <string> } ${requiredParameter} missing from request` })
     }
   }
-  
-  database('subclasses').insert(subclass, 'id')
-    .then(newId => {
+  database('classes').where('name', subclass.parent_class).select()
+    .then(parentClass => {
+      console.log(parentClass)
       const { name, subclass_flavor, description } = subclass
-      response.status(201).json({ id: newId[0], name, subclass_flavor, description });
-    });
+      database('subclasses').insert({ name, subclass_flavor, description, class_id: parentClass[0].id }, 'id')
+      .then(newId => {
+        console.log(newId)
+        const { name, subclass_flavor, description } = subclass
+        response.status(201).json({ id: newId[0], name, subclass_flavor, description });
+      });
+    })
 });
 //End subclasses endpoints
 
