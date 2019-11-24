@@ -95,15 +95,13 @@ app.post('/api/v1/subclasses', (request, response) => {
   }
   database('classes').where('name', subclass.parent_class).select()
     .then(parentClass => {
-      console.log(parentClass)
-      const { name, subclass_flavor, description } = subclass
+      const { name, subclass_flavor, description } = subclass;
       database('subclasses').insert({ name, subclass_flavor, description, class_id: parentClass[0].id }, 'id')
-      .then(newId => {
-        console.log(newId)
-        const { name, subclass_flavor, description } = subclass
-        response.status(201).json({ id: newId[0], name, subclass_flavor, description });
-      });
-    })
+        .then(newId => {
+          const { name, subclass_flavor, description } = subclass;
+          response.status(201).json({ id: newId[0], name, subclass_flavor, description });
+        });
+    });
 });
 //End subclasses endpoints
 
