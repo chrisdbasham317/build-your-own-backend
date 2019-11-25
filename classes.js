@@ -1,5 +1,85 @@
 const classes = [
   {
+    name: 'Aberrant Summoner',
+    hit_die: 6,
+    sub_class: 'Severance'
+  },
+  {
+    name: 'Abomination',
+    hit_die: 10,
+    sub_class: 'Lycanthrope'
+  },
+  {
+    name: 'Battle Medic',
+    hit_die: 10,
+    sub_class: 'Savior'
+  },
+  {
+    name: 'Battlemage',
+    hit_die: 10,
+    sub_class: 'Destroyer'
+  },
+  {
+    name: 'Beast Hunter',
+    hit_die: 10,
+    sub_class: "Beast's Embrace"
+  },
+  {
+    name: 'Behemoth',
+    hit_die: 10,
+    sub_class: 'Savage'
+  },
+  {
+    name: 'Berserker',
+    hit_die: 12,
+    sub_class: 'Fenrir'
+  },
+  {
+    name: 'Blade Singer',
+    hit_die: 10,
+    sub_class: 'Flame Song'
+  },
+  {
+    name: 'Blood Caster',
+    hit_die: 10,
+    sub_class: 'Vampire'
+  },
+  {
+    name: 'Bright Lord',
+    hit_die: 12,
+    sub_class: 'Power'
+  },
+  {
+    name: 'Chaos Knight',
+    hit_die: 12,
+    sub_class: 'Harbinger'
+  },
+  {
+    name: 'Classless',
+    hit_die: 8,
+    sub_class: 'Investigator'
+  },
+  {
+    name: 'Dark Lord',
+    hit_die: 10,
+    sub_class: 'Sentience'
+  },
+  {
+    name: 'Doctor',
+    hit_die: 8,
+    sub_class: 'Surgeon'
+  },
+  {
+    name: 'Enchantress',
+    hit_die: 8,
+    sub_class: 'Siren'
+  },
+  {
+    name: 'Juggernaut',
+    hit_die: 8,
+    sub_class: 'Ravager'
+  },
+  {
     name: "Artificer",
 	  hit_die: 8,
 	  proficiencies: [ "Light armor", "Medium armor", "Shields", "Simple weapons", "Crossbows, hand", "Crossbows, heavy"],

@@ -59,7 +59,7 @@ app.delete('/api/v1/classes/:id', (request, response) => {
     .catch(error => {
       response.status(404).send({ error: `Class with ID: ${id} not found` });
     });
-})
+});
 //End classes endpoints
 
 //Start subclasses endpoints
