@@ -88,7 +88,103 @@ const subclasses = [
     name: "Evocation",
     subclass_flavor: "Arcane Tradition",
     desc: "You focus your study on magic that creates powerful elemental effects such as bitter cold, searing flame, rolling thunder, crackling lightning, and burning acid. Some evokers find employment in military forces, serving as artillery to blast enemy armies from afar. Others use their spectacular power to protect the weak, while some seek their own gain as bandits, adventurers, or aspiring tyrants."
-  }
+  },
+  {
+    parent_class: 'Aberrant Summoner',
+    name: 'Severance',
+    subclass_flavor: 'Warrior Mage',
+    desc: 'While typically associated with isolated study and lonesome experimentation, the work of the Aberrant Summoner is not exclusive to magical colleges and royal courts. Instead, some find their way onto the battlefield, using their skills to shift the tides of military action, while others use their knowledge to aid in the defeat of grand foes seemingly unmatched by any other adversary. These battles between titans are only made possible through the wielding of the Severant Aberration; creatures of pure strength and ferocity, birthed in the image of the grandest titans of all: Dragons.'
+  },
+  {
+    parent_class: 'Abomination',
+    name: 'Lycanthrope',
+    subclass_flavor: 'Manifestation',
+    desc: 'Your inner beast can no longer b e contained. When an Abomination reaches maximum stress levels, its inner wolf breaks free!'
+  },
+  {
+    parent_class: 'Battle Medic',
+    name: 'Savior',
+    subclass_flavor: 'Order',
+    desc: 'A savior battle medic values the health and well being of their comrades above all else, and devote themselves to helping others.'
+  },
+  {
+    parent_class: 'Battlemage',
+    name: 'Destroyer',
+    subclass_flavor: 'Battle Style',
+    desc: 'These battlemages devastate their enemies with powerful evocations and other destructive magical forces.'
+  },
+  {
+    parent_class: 'Beast Hunter',
+    name: "Beast's Embrace",
+    subclass_flavor: 'Oath Rune',
+    desc: 'The Hunters of the Healing Church often used Beast Blood to enhance themselves, at the cost of losing their sanity to the beast within. Lead by their Vicar, they seek to embrace Beasthood to achieve the goal of spreading the blood of the true Darkbeasts.'
+  },
+  {
+    parent_class: 'Behemoth',
+    name: 'Savage',
+    subclass_flavor: 'Instinctive Nature',
+    desc: 'As a savage behemoth, your attacks hit harder than anything else known. Reenacting the raw strength of fabled behemoths, a single blow from a savage could destroy anything. A savage does not lose control or rage like that of others. Its nature is controlled but primal. The strikes are decisive and its enemies targeted.'
+  },
+  {
+    parent_class: 'Berserker',
+    name: 'Fenrir',
+    subclass_flavor: 'Path',
+    desc: 'A Berserker defines his call to battle by becoming as savage as Fenrir, the great wolf that will slay the even mighty Odin come Ragnarök'
+  },
+  {
+    parent_class: 'Blade Singer',
+    name: 'Flame Song',
+    subclass_flavor: 'Form',
+    desc: 'The Fire Song is a dance that prioritises movement around the battle field and area of effect damage, whilst assisting your allies by distracting enemies.'
+  },
+  {
+    parent_class: 'Blood Caster',
+    name: 'Vampire',
+    subclass_flavor: 'Path',
+    desc: 'You chose to follow the Path of the Vampire, making you hunger for blood forever. Your goal is only the self-preservation and you constantly search for ways to refill and expand your Blood Fountain. You found blood... a lot of it in a reliable source: Others.'
+  },
+  {
+    parent_class: 'Bright Lord',
+    name: 'Power',
+    subclass_flavor: 'Lords Dominion',
+    desc: 'You give no room for Darkness as you charge down your path to reach your destiny with invigorated might and a disdain for that dark of heart. None will stand in your way. You are power and your vigour cannot be swayed. Laws, to you, are not impervious to being broken, even those of the universe.'
+  },
+  {
+    parent_class: 'Chaos Knight',
+    name: 'Harbinger',
+    subclass_flavor: 'Doom Path',
+    desc: 'The Harbinger chooses a path of fear, and utilizes it to spread death and destruction.'
+  },
+  {
+    parent_class: 'Classless',
+    name: 'Investigator',
+    subclass_flavor: 'Subclassless',
+    desc: 'Investigators train themselves to find out things that are not meant to be found out.'
+  },
+  {
+    parent_class: 'Dark Lord',
+    name: 'Sentience',
+    subclass_flavor: 'Dominion',
+    desc: "If one wants to gain absolute power, domination over the minds of others, must be achieved. You are easily amused by the mental torment of your enemies. Every now and then, however, you can enjoy minor trickery as well. Playing with other's mind is a hearty past time for you... as well as destroying them."
+  },
+  {
+    parent_class: 'Doctor',
+    name: 'Surgeon',
+    subclass_flavor: 'Profession',
+    desc: 'The Surgeon is the careful, deliberate Doctor who is far more specialized in long sessions of healing rather than in-the-moment patch jobs. While in moments when time is not a big deal, they can heal far greater than most other healing counterparts, they lack the ability to grant staying power to the party during a crisis. Even so, they understand anatomy and medicine to a far greater extent than other healing classes, and may prove to be the most useful in less combat-oriented campaigns.'
+  },
+  {
+    parent_class: 'Enchantress',
+    name: 'Siren',
+    subclass_flavor: 'Path',
+    desc: 'You use your beautiful voice to enchant creatures and invade their minds.'
+  },
+  {
+    parent_class: 'Juggernaut',
+    name: 'Ravager',
+    subclass_flavor: 'Specialty',
+    desc: 'Ravagers are juggernauts who seek the path to violence as their defense. Their goal is to protect only themselves from enemies and retaliating viciously. Ravagers are often shunned or looked down upon by other juggernauts because of their aggressive motives in battle. Still, ravagers are proud of their abilities and always try to prove themselves.'
+  },
 ]
 
 module.exports = subclasses;
