@@ -21,6 +21,9 @@ Build Your Own Backend (BYOB) is a first attempt RESTful API, built as a solo pr
  - [X] Knex
  - [X] PostgreSQL
  - [X] Keroku
+ 
+## Link to Project Board
+https://trello.com/b/NVBqBljb/byob-board
 
 ## Endpoints
 
