@@ -16,21 +16,21 @@ Build Your Own Backend (BYOB) is a first attempt RESTful API, built as a solo pr
 **Harry Potter Backend** is a RESTful API built in a week. It provides data about the houses of Hogwarts School of Witchcraft and Wizardy and ten students from each house. Users can receive data through GET requests, add data to the API through POST requests, and delete data with DELETE requests.
 
 ## Built With
- [X] Node.js
- [X] Express
- [X] Knex
- [X] PostgreSQL
- [X] Keroku
+ - [X] Node.js
+ - [X] Express
+ - [X] Knex
+ - [X] PostgreSQL
+ - [X] Keroku
 
 ## Endpoints
 
 ### Classes
-  [x] https://dnd-byob.herokuapp.com/api/v1/classes
-  [x] https://dnd-byob.herokuapp.com/api/v1/classes/:id
+  - [x] https://dnd-byob.herokuapp.com/api/v1/classes
+  - [x] https://dnd-byob.herokuapp.com/api/v1/classes/:id
   
 ### Subclasses
-  [x] https://dnd-byob.herokuapp.com/api/v1/subclasses
-  [x] https://dnd-byob.herokuapp.com/api/v1/subclasses/:id
+  - [x] https://dnd-byob.herokuapp.com/api/v1/subclasses
+  - [x] https://dnd-byob.herokuapp.com/api/v1/subclasses/:id
 
 ## API Calls
 
@@ -135,7 +135,7 @@ Build Your Own Backend (BYOB) is a first attempt RESTful API, built as a solo pr
 
 - A user can make a POST request to add a new class to the API
 #### POST /api/v1/classes
-- This endpoint requires {"name": <string>, "hit_die": <string>}
+- This endpoint requires {"name": string, "hit_die": string}
 
 #### Sample Response
 
@@ -149,7 +149,7 @@ Build Your Own Backend (BYOB) is a first attempt RESTful API, built as a solo pr
 
 - A user can make a POST request to add a new subclass to the API
 #### POST /api/v1/subclasses
-- This endpoint requires {"name": <string>, "subclass_flavor": <string>, "description": <string>, "parent_class": <string>}
+- This endpoint requires {"name": string, "subclass_flavor": string, "description": string, "parent_class": string}
 
 #### Sample Response
 
